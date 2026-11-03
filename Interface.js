@@ -35,20 +35,20 @@ static listar(turma) {
  let lista = '<table>';
  lista += '<tr><th>Nome</th> <th>Media</th> <th>Situação</th></tr>';
  for (let i = 0; i < turma.length; i++) {
-   lista =
-     lista +
+   lista +=
      "<tr>"+
      "<td>"+turma[i].getNome() +"</td>"+
      "<td>"+turma[i].media.toFixed(2) +"</td>"+
-     "<td>"+turma[i].estado +"</td>"
+     "<td>"+turma[i].estado +"</td>" +
      "</tr>";
  }
- lista += 
+ lista += "</table>";
+ document.getElementById("alunos").innerHTML = lista;
+/* lista += 
   "<tr>" +
   "<td>" + turma[i].getNome() + "</td>" +
   "<td>" + turma [i].media.toFixed(2) + "</td>" +
-  "<td>" + turma [i].estado + "<td>" + "</tr>";
-
+  "<td>" + turma [i].estado + "<td>" + "</tr>"; */
 }
 
 static cadastrar() {
