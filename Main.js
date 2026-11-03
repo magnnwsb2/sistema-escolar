@@ -8,7 +8,10 @@ function listarAluno(){
 
 function btnSalvar(){
   const aluno = Interface.salvar();
-  turma.push(aluno);
+
+  if (aluno instanceof Aluno){
+   turma.push(aluno);
+  }
 }
 
 

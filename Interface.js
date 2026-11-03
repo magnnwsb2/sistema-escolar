@@ -7,10 +7,11 @@ constructor(){
 }   
 static salvar() {
  let nome = document.getElementById('nome').value;
+ let matricula = document.getElementById('matricula').value;
  let n1 = Number(document.getElementById('n1').value);
  let n2 = Number(document.getElementById('n2').value);
  let n3 = Number(document.getElementById('n3').value);
- let a1 = new Aluno(nome, n1, n2, n3);
+ let a1 = new Aluno(nome, matricula, n1, n2, n3);
  let m = a1.gerarMedia(n1, n2, n3);
  a1.gerarEstado(m);
  //turma[turma.length] = a1;
