@@ -48,7 +48,7 @@ class Aluno {
     this.gerarEstado();
   }
   setNota3 (nota3) {
-    this.nota3 = nota3;
+    this.#nota3 = nota3;
     this.gerarMedia();
     this.gerarEstado();
   }
