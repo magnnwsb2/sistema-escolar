@@ -6,7 +6,11 @@ constructor(){
 
 }   
 static salvar() {
- let nome = document.getElementById('nome').value;
+ let nome = document.getElementById('nome').value.trim();
+ if (nome == ''){
+  alert('Informe o nome do aluno.');
+  return null;
+ }
  let matricula = document.getElementById('matricula').value;
  let n1 = Number(document.getElementById('n1').value);
  let n2 = Number(document.getElementById('n2').value);
