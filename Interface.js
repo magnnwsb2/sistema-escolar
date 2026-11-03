@@ -11,10 +11,29 @@ static salvar() {
   alert('Informe o nome do aluno.');
   return null;
  }
- let matricula = document.getElementById('matricula').value;
- let n1 = Number(document.getElementById('n1').value);
- let n2 = Number(document.getElementById('n2').value);
- let n3 = Number(document.getElementById('n3').value);
+ let matricula = document.getElementById('matricula').value.trim();
+ if (matricula == ''){
+  alert('Informe uma matrícula válida!')
+  return null;
+ }
+ let valorN1 = document.getElementById('n1').value.trim();
+ let n1 = Number(valorN1)
+ if (valorN1 === '' || !Number.isFinite(n1) || n1 < 0 || n1 > 10){
+  alert('A nota 1 deve ser um, número entre 0 e 10.');
+  return null;
+ }
+ let valorN2 = document.getElementById('n2').value.trim();
+ let n2 = Number(valorN2)
+ if (valorN2 === '' || !Number.isFinite(n2) || n2 < 0 || n2 > 10){
+  alert('A nota 2 deve ser um, número entre 0 e 10.');
+  return null;
+ }
+ let valorN3 = document.getElementById('n3').value.trim();
+ let n3 = Number(valorN3)
+ if (valorN3 === '' || !Number.isFinite(n3) || n3 < 0 || n3 > 10){
+  alert('A nota 3 deve ser um, número entre 0 e 10.');
+  return null;
+ }
  let a1 = new Aluno(nome, matricula, n1, n2, n3);
  let m = a1.gerarMedia(n1, n2, n3);
  a1.gerarEstado(m);
