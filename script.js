@@ -30,7 +30,7 @@ function listar() {
    lista =
      lista +
      "<tr>"+
-     "<td>"+turma[i].nome +"</td>"+
+     "<td>"+turma[i].getNome +"</td>"+
      "<td>"+turma[i].media.toFixed(2) +"</td>"+
      "<td>"+turma[i].estado +"</td>"
      "</tr>";

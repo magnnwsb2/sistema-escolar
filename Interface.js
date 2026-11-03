@@ -42,10 +42,13 @@ static listar(turma) {
      "<td>"+turma[i].estado +"</td>"
      "</tr>";
  }
- lista += "</table>"
- document.getElementById('alunos').innerHTML = lista;
-}
+ lista += 
+  "<tr>" +
+  "<td>" + turma[i].getNome() + "</td>" +
+  "<td>" + turma [i].media.toFixed(2) + "</td>" +
+  "<td>" + turma [i].estado + "<td>" + "</tr>";
 
+}
 
 static cadastrar() {
  const btnCadastrar = document.getElementById('btn-cadastrar');
