@@ -106,3 +106,5 @@ static cadastrar() {
  //document.getElementById("media").innerHTML = m;
 }
 }//fim da classe
+
+window.Interface = Interface;
