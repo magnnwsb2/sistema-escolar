@@ -112,3 +112,18 @@ select {
 #editor-notas {
  border-radius: 10px;
 }
+
+/* Layout adaptável para telas pequenas e grandes */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+ width: 100%;
+ max-width: 900px;
+ min-width: 0;
+}
+.tab-content, .lista-alunos { min-width: 0; max-width: 100%; }
+input, select, button { max-width: 100%; }
+@media (max-width: 600px) {
+ body { padding: 12px; }
+ .tabs-container { width: 100%; }
+ .tab-button { min-width: 0; padding: 10px 6px; }
+}
