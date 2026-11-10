@@ -111,6 +111,15 @@ function btnSalvar(){
   turma.push(aluno);
   turmas[Number(turmaSelecionada)].alunos.push(aluno);
   salvarDados();
+  // Limpa os campos do aluno, preservando a turma selecionada.
+  ['nome', 'matricula', 'n1', 'n2', 'n3'].forEach(id => {
+   const campo = document.getElementById(id);
+   campo.value = '';
+   if (id === 'n1' || id === 'n2' || id === 'n3') {
+    campo.dataset.valorValido = '';
+   }
+  });
+  salvarFormulario();
  }
 }
 
