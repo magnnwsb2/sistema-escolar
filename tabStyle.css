@@ -58,3 +58,38 @@
 }
 #alunos th:first-child { border-radius: 9px 0 0 0; }
 #alunos th:last-child { border-radius: 0 9px 0 0; }
+
+/* No celular, cada aluno vira um cartão: não precisa rolar para o lado. */
+@media (max-width: 600px) {
+ #alunos table, #alunos tbody, #alunos tr, #alunos td {
+  display: block;
+  width: 100%;
+  min-width: 0;
+ }
+ #alunos table { border: 0; overflow: visible; }
+ #alunos tr:first-child { display: none; }
+ #alunos tr:not(:first-child) {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 8px;
+  background: #fff;
+ }
+ #alunos td {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  text-align: right;
+  overflow-wrap: anywhere;
+ }
+ #alunos td::before { font-weight: bold; text-align: left; flex-shrink: 0; }
+ #alunos td:nth-child(1)::before { content: "Nome"; }
+ #alunos td:nth-child(2)::before { content: "Nota 1"; }
+ #alunos td:nth-child(3)::before { content: "Nota 2"; }
+ #alunos td:nth-child(4)::before { content: "Nota 3"; }
+ #alunos td:nth-child(5)::before { content: "Média"; }
+ #alunos td:nth-child(6)::before { content: "Situação"; }
+ #alunos td:nth-child(7)::before { content: "Editar"; }
+}
