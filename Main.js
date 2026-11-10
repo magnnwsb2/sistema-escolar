@@ -113,22 +113,31 @@ function cadastroAluno(){
 
 function editarNotas(i) {
  const aluno = turma[i];
- const nota1 = prompt('Nota 1:', aluno.getNota1());
- if (nota1 === null) return;
- const nota2 = prompt('Nota 2:', aluno.getNota2());
- if (nota2 === null) return;
- const nota3 = prompt('Nota 3:', aluno.getNota3());
- if (nota3 === null) return;
- const notas = [nota1, nota2, nota3];
- if (notas.some(n => n.trim() === '' || !Number.isFinite(Number(n)) || Number(n) < 0 || Number(n) > 10)) {
-  alert('As notas devem ser números entre 0 e 10.');
+ if (!aluno) {
+  alert('Aluno não encontrado.');
   return;
  }
- aluno.setNota1(Number(nota1));
- aluno.setNota2(Number(nota2));
- aluno.setNota3(Number(nota3));
+ const escolha = prompt('Qual nota deseja alterar? Digite 1, 2 ou 3:');
+ if (escolha === null) return;
+ const numero = escolha.trim();
+ if (!['1', '2', '3'].includes(numero)) {
+  alert('Escolha a nota 1, 2 ou 3.');
+  return;
+ }
+ const notaAtual = numero === '1' ? aluno.getNota1() : numero === '2' ? aluno.getNota2() : aluno.getNota3();
+ const entrada = prompt('Digite o novo valor da nota ' + numero + ':', notaAtual);
+ if (entrada === null) return;
+ const valor = Number(entrada.trim().replace(',', '.'));
+ if (entrada.trim() === '' || !Number.isFinite(valor) || valor < 0 || valor > 10) {
+  alert('A nota deve ser um número entre 0 e 10.');
+  return;
+ }
+ if (numero === '1') aluno.setNota1(valor);
+ if (numero === '2') aluno.setNota2(valor);
+ if (numero === '3') aluno.setNota3(valor);
  salvarDados();
  listarAluno();
+ alert('Nota ' + numero + ' atualizada.');
 }
 
 window.btnSalvarTurma = btnSalvarTurma;
