@@ -37,7 +37,7 @@ static salvar() {
  let a1 = new Aluno(nome, matricula, n1, n2, n3);
  let m = a1.gerarMedia(n1, n2, n3);
  a1.gerarEstado(m);
- //turma[turma.length] = a1;
+
  alert('aluno cadastrado');
  return a1;
 }
@@ -56,11 +56,14 @@ static listar(turma) {
  tabListar.classList.add('active');
  tabCadastrar.classList.remove('active');
  let lista = '<table>';
- lista += '<tr><th>Nome</th> <th>Media</th> <th>Situação</th></tr>';
+ lista += '<tr><th>Nome</th><th>Nota 1</th><th>Nota 2</th><th>Nota 3</th><th>Média</th><th>Situação</th></tr>';
  for (let i = 0; i < turma.length; i++) {
    lista +=
      "<tr>"+
      "<td>"+turma[i].getNome() +"</td>"+
+     "<td>"+turma[i].getNota1() +"</td>"+
+     "<td>"+turma[i].getNota2() +"</td>"+
+     "<td>"+turma[i].getNota3() +"</td>"+
      "<td>"+turma[i].media.toFixed(2) +"</td>"+
      "<td>"+turma[i].estado +"</td>" +
      "</tr>";
@@ -72,6 +75,17 @@ static listar(turma) {
   "<td>" + turma[i].getNome() + "</td>" +
   "<td>" + turma [i].media.toFixed(2) + "</td>" +
   "<td>" + turma [i].estado + "<td>" + "</tr>"; */
+}
+
+static salvarTurma() {
+ const professor = document.getElementById('professor').value.trim();
+ const curso = document.getElementById('curso').value.trim();
+ if (professor === '' || curso === '') {
+  alert('Informe o professor e o curso.');
+  return null;
+ }
+ alert('Turma cadastrada');
+ return new Turma(professor, curso);
 }
 
 static cadastrar() {
