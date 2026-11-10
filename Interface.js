@@ -56,7 +56,7 @@ static listar(turma) {
  tabListar.classList.add('active');
  tabCadastrar.classList.remove('active');
  let lista = '<table>';
- lista += '<tr><th>Nome</th><th>Nota 1</th><th>Nota 2</th><th>Nota 3</th><th>Média</th><th>Situação</th></tr>';
+ lista += '<tr><th>Nome</th><th>Nota 1</th><th>Nota 2</th><th>Nota 3</th><th>Média</th><th>Situação</th><th>Editar</th></tr>';
  for (let i = 0; i < turma.length; i++) {
    lista +=
      "<tr>"+
@@ -66,6 +66,7 @@ static listar(turma) {
      "<td>"+turma[i].getNota3() +"</td>"+
      "<td>"+turma[i].media.toFixed(2) +"</td>"+
      "<td>"+turma[i].estado +"</td>" +
+     '<td><button onclick="editarNotas('+i+')">Editar notas</button></td>' +
      "</tr>";
  }
  lista += "</table>";
