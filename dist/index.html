@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="script.js" defer></script> -->
+    <script src="./Aluno.js" defer></script>
+    <script src="./Turma.js" defer></script>
+    <script src="./Interface.js" defer></script>
+    <script src="./Main.js" defer></script>
+    <title>Sistema Escolar</title>
+    <link rel="stylesheet" crossorigin href="/assets/index-99lryltP.css">
+  </head>
+  <body>
+    <!-- Botões para trocar de aba -->
+    <div class="tabs-container">
+      <button class="tab-button active" id="btn-cadastrar" onclick="cadastroAluno()">Cadastrar</button>
+      <button class="tab-button" id="btn-listar" onclick="listarAluno()">
+        Listar Alunos
+      </button>
+    </div>
+
+
+    <!-- Conteúdo da Aba 1: Cadastrar -->
+    <div id="tab-cadastrar" class="tab-content active">
+      Nome: <input id="nome" type="text" />
+      Matrícula: <input id="matricula" type="text" />
+      Nota 1: <input id="n1" type="text" />
+      Nota 2: <input id="n2" type="text" />
+      Nota 3: <input id="n3" type="text" />
+      Turma: <select id="turma-aluno"><option value="">Selecione uma turma</option></select>
+      <button onclick="btnSalvar()" class="btn-salvar">Salvar Aluno</button>
+      <h3>Cadastrar Turma</h3>
+      Professor: <input id="professor" type="text" />
+      Curso: <input id="curso" type="text" />
+      <button onclick="btnSalvarTurma()">Salvar Turma</button>
+    </div>
+
+
+    <!-- Conteúdo da Aba 2: Listar -->
+    <div id="tab-listar" class="tab-content">
+      <h3>Alunos Cadastrados</h3>
+      <div class="lista-alunos" id="alunos">
+        <!-- O JavaScript vai colocar os alunos aqui depois -->
+        <p>Nenhum aluno cadastrado ainda.</p>
+      </div>
+    </div>
+  </body>
+</html>
