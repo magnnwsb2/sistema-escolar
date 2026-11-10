@@ -67,6 +67,9 @@ function carregarFormulario() {
 window.addEventListener('DOMContentLoaded', () => {
  carregarDados();
  carregarFormulario();
+ if (localStorage.getItem('sistema-escolar-aba') === 'listar') {
+  Interface.listar(turma);
+ }
  document.querySelectorAll('input, select').forEach(campo => {
   campo.addEventListener('input', salvarFormulario);
   campo.addEventListener('change', salvarFormulario);
