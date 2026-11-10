@@ -2,6 +2,25 @@ import './Aluno.js';
 import './Turma.js';
 import './Interface.js';
 
+// Normaliza vírgula e impede notas fora do intervalo enquanto o usuário digita.
+function configurarCampoNota(campo) {
+ campo.type = 'text';
+ campo.inputMode = 'decimal';
+ campo.placeholder = '0 a 10';
+ campo.addEventListener('input', () => {
+  const anterior = campo.dataset.valorValido || '';
+  const texto = campo.value.replace(/,/g, '.');
+  // Permite valores parciais como "8." durante a digitação.
+  if (!/^(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]*)?$/.test(texto) ||
+      (texto !== '' && Number(texto) > 10)) {
+   campo.value = anterior;
+   return;
+  }
+  campo.value = texto;
+  campo.dataset.valorValido = texto;
+ });
+}
+
 let turmas = [];
 let turma = [];
 
@@ -67,6 +86,7 @@ function carregarFormulario() {
 window.addEventListener('DOMContentLoaded', () => {
  carregarDados();
  carregarFormulario();
+ ['n1', 'n2', 'n3'].forEach(id => configurarCampoNota(document.getElementById(id)));
  if (localStorage.getItem('sistema-escolar-aba') === 'listar') {
   Interface.listar(turma);
  }
@@ -134,13 +154,11 @@ function editarNotas(i) {
   selecao.appendChild(opcao);
  });
  const campo = document.createElement('input');
- campo.type = 'number';
- campo.min = '0';
- campo.max = '10';
- campo.step = '0.1';
+ configurarCampoNota(campo);
  const notas = [aluno.getNota1(), aluno.getNota2(), aluno.getNota3()];
  function atualizarCampo() {
   campo.value = notas[Number(selecao.value) - 1];
+  campo.dataset.valorValido = campo.value;
  }
  selecao.addEventListener('change', atualizarCampo);
  atualizarCampo();
@@ -149,7 +167,7 @@ function editarNotas(i) {
  salvar.textContent = 'Salvar nota';
  salvar.type = 'button';
  salvar.addEventListener('click', () => {
-  const valor = Number(campo.value);
+  const valor = Number(campo.value.replace(',', '.'));
   if (campo.value.trim() === '' || !Number.isFinite(valor) || valor < 0 || valor > 10) {
    alert('A nota deve ser um número entre 0 e 10.');
    return;
