@@ -12,7 +12,7 @@
   <body>
     <!-- Botões para trocar de aba -->
     <div class="tabs-container">
-      <button class="tab-button active" id="btn-cadastrar" onclick="cadastroAluno()">Cadastrar</button>
+      <button class="tab-button" id="btn-cadastrar" onclick="cadastroAluno()">Cadastrar</button>
       <button class="tab-button" id="btn-listar" onclick="listarAluno()">
         Listar Alunos
       </button>
@@ -20,7 +20,13 @@
 
 
     <!-- Conteúdo da Aba 1: Cadastrar -->
-    <div id="tab-cadastrar" class="tab-content active">
+    <div id="tab-cadastrar" class="tab-content">
+      <h3>O que deseja cadastrar?</h3>
+      <div class="opcoes-cadastro">
+        <button type="button" onclick="mostrarCadastro('turma')">Cadastrar Turma</button>
+        <button type="button" onclick="mostrarCadastro('aluno')">Cadastrar Aluno</button>
+      </div>
+      <div id="cadastro-aluno" class="formulario-cadastro">
       Nome: <input id="nome" type="text" />
       Matrícula: <input id="matricula" type="text" />
       Nota 1: <input id="n1" type="text" />
@@ -28,10 +34,13 @@
       Nota 3: <input id="n3" type="text" />
       Turma: <select id="turma-aluno"><option value="">Selecione uma turma</option></select>
       <button onclick="btnSalvar()" class="btn-salvar">Salvar Aluno</button>
+      </div>
+      <div id="cadastro-turma" class="formulario-cadastro">
       <h3>Cadastrar Turma</h3>
       Professor: <input id="professor" type="text" />
       Curso: <input id="curso" type="text" />
       <button onclick="btnSalvarTurma()">Salvar Turma</button>
+      </div>
     </div>
 
 
