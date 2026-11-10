@@ -32,8 +32,8 @@
 
 
 /* Alinhamento da média */
-#alunos th:nth-child(2),
-#alunos td:nth-child(2) {
+#alunos th:nth-child(6),
+#alunos td:nth-child(6) {
   text-align: center;
 }
 
@@ -86,10 +86,11 @@
  }
  #alunos td::before { font-weight: bold; text-align: left; flex-shrink: 0; }
  #alunos td:nth-child(1)::before { content: "Nome"; }
- #alunos td:nth-child(2)::before { content: "Nota 1"; }
- #alunos td:nth-child(3)::before { content: "Nota 2"; }
- #alunos td:nth-child(4)::before { content: "Nota 3"; }
- #alunos td:nth-child(5)::before { content: "Média"; }
- #alunos td:nth-child(6)::before { content: "Situação"; }
- #alunos td:nth-child(7)::before { content: "Editar"; }
+ #alunos td:nth-child(2)::before { content: "Turma"; }
+ #alunos td:nth-child(3)::before { content: "Nota 1"; }
+ #alunos td:nth-child(4)::before { content: "Nota 2"; }
+ #alunos td:nth-child(5)::before { content: "Nota 3"; }
+ #alunos td:nth-child(6)::before { content: "Média"; }
+ #alunos td:nth-child(7)::before { content: "Situação"; }
+ #alunos td:nth-child(8)::before { content: "Editar"; }
 }
