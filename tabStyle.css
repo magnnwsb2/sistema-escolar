@@ -47,3 +47,14 @@
 #alunos th:last-child {
   border-radius: 0 8px 8px 0;
 }
+
+/* Contorno arredondado da tabela, sem alterar seus dados */
+#alunos table {
+ border-collapse: separate;
+ border-spacing: 0;
+ border: 1px solid #e5e5e5;
+ border-radius: 10px;
+ overflow: hidden;
+}
+#alunos th:first-child { border-radius: 9px 0 0 0; }
+#alunos th:last-child { border-radius: 0 9px 0 0; }
