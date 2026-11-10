@@ -1,6 +1,6 @@
 /* Configurações básicas da página */
 body {
- font-family: Arial, sans-serif;
+ font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
  padding: 20px;
  max-width: 350px; /* Aumentado levemente para acomodar as abas */
  margin: 0 auto;
@@ -28,7 +28,7 @@ body {
  border-bottom: none;
  cursor: pointer;
  font-size: 14px;
- border-radius: 4px 4px 0 0;
+ border-radius: 9px;
  transition: background-color 0.2s;
 }
 
@@ -60,7 +60,7 @@ body {
 input {
  padding: 8px;
  border: 1px solid #ccc;
- border-radius: 4px;
+ border-radius: 9px;
  font-size: 14px;
  width: 100%;
  box-sizing: border-box;
@@ -79,7 +79,7 @@ input:focus {
  background-color: #28a745;
  color: white;
  border: none;
- border-radius: 4px;
+ border-radius: 9px;
  cursor: pointer;
  font-weight: bold;
 }
@@ -96,4 +96,19 @@ input:focus {
  padding: 8px;
  border-bottom: 1px solid #eee;
  font-size: 14px;
+}
+
+/* Cantos arredondados e tipografia consistente */
+button, select, input {
+ font-family: inherit;
+ font-size: 14px;
+ border-radius: 9px;
+}
+select {
+ padding: 8px;
+ border: 1px solid #ccc;
+ max-width: 100%;
+}
+#editor-notas {
+ border-radius: 10px;
 }
