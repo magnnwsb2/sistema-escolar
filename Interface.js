@@ -17,19 +17,19 @@ static salvar() {
   return null;
  }
  let valorN1 = document.getElementById('n1').value.trim();
- let n1 = Number(valorN1)
+ let n1 = Number(valorN1.replace(',', '.'))
  if (valorN1 === '' || !Number.isFinite(n1) || n1 < 0 || n1 > 10){
   alert('A nota 1 deve ser um, número entre 0 e 10.');
   return null;
  }
  let valorN2 = document.getElementById('n2').value.trim();
- let n2 = Number(valorN2)
+ let n2 = Number(valorN2.replace(',', '.'))
  if (valorN2 === '' || !Number.isFinite(n2) || n2 < 0 || n2 > 10){
   alert('A nota 2 deve ser um, número entre 0 e 10.');
   return null;
  }
  let valorN3 = document.getElementById('n3').value.trim();
- let n3 = Number(valorN3)
+ let n3 = Number(valorN3.replace(',', '.'))
  if (valorN3 === '' || !Number.isFinite(n3) || n3 < 0 || n3 > 10){
   alert('A nota 3 deve ser um, número entre 0 e 10.');
   return null;
