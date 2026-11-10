@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function listarAluno(){
- Interface.listar(turma);
+ Interface.listar(turma, turmas);
 }
 
 function btnSalvar(){
