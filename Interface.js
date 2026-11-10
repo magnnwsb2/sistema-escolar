@@ -41,7 +41,7 @@ static salvar() {
  alert('aluno cadastrado');
  return a1;
 }
-static listar(turma) {
+static listar(turma, turmas = []) {
  localStorage.setItem('sistema-escolar-aba', 'listar');
  const btnCadastrar = document.getElementById('btn-cadastrar');
  const tabCadastrar = document.getElementById('tab-cadastrar');
@@ -57,11 +57,12 @@ static listar(turma) {
  tabListar.classList.add('active');
  tabCadastrar.classList.remove('active');
  let lista = '<table>';
- lista += '<tr><th>Nome</th><th>Nota 1</th><th>Nota 2</th><th>Nota 3</th><th>Média</th><th>Situação</th><th>Editar</th></tr>';
+ lista += '<tr><th>Nome</th><th>Turma</th><th>Nota 1</th><th>Nota 2</th><th>Nota 3</th><th>Média</th><th>Situação</th><th>Editar</th></tr>';
  for (let i = 0; i < turma.length; i++) {
    lista +=
      "<tr>"+
      "<td>"+turma[i].getNome() +"</td>"+
+     "<td>"+(turmas.find(t => t.alunos.includes(turma[i]))?.curso || "Sem turma") +"</td>"+
      "<td>"+turma[i].getNota1() +"</td>"+
      "<td>"+turma[i].getNota2() +"</td>"+
      "<td>"+turma[i].getNota3() +"</td>"+
