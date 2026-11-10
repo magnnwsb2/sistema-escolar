@@ -1,3 +1,7 @@
+import './Aluno.js';
+import './Turma.js';
+import './Interface.js';
+
 let turmas = [];
 let turma = [];
 
@@ -123,3 +127,9 @@ function editarNotas(i) {
  salvarDados();
  listarAluno();
 }
+
+window.btnSalvarTurma = btnSalvarTurma;
+window.btnSalvar = btnSalvar;
+window.listarAluno = listarAluno;
+window.cadastroAluno = cadastroAluno;
+window.editarNotas = editarNotas;
