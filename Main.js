@@ -87,9 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
  carregarDados();
  carregarFormulario();
  ['n1', 'n2', 'n3'].forEach(id => configurarCampoNota(document.getElementById(id)));
- if (localStorage.getItem('sistema-escolar-aba') === 'listar') {
-  Interface.listar(turma);
- }
+ // A tela inicial mostra as opções; o usuário escolhe onde entrar.
  document.querySelectorAll('input, select').forEach(campo => {
   campo.addEventListener('input', salvarFormulario);
   campo.addEventListener('change', salvarFormulario);
@@ -138,6 +136,13 @@ function btnSalvarTurma(){
 
 function cadastroAluno(){
  Interface.cadastrar();
+ document.getElementById('cadastro-aluno').classList.remove('active');
+ document.getElementById('cadastro-turma').classList.remove('active');
+}
+
+function mostrarCadastro(tipo) {
+ document.getElementById('cadastro-aluno').classList.toggle('active', tipo === 'aluno');
+ document.getElementById('cadastro-turma').classList.toggle('active', tipo === 'turma');
 }
 
 function editarNotas(i) {
@@ -200,3 +205,5 @@ window.btnSalvar = btnSalvar;
 window.listarAluno = listarAluno;
 window.cadastroAluno = cadastroAluno;
 window.editarNotas = editarNotas;
+
+window.mostrarCadastro = mostrarCadastro;
