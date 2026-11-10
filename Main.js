@@ -113,31 +113,59 @@ function cadastroAluno(){
 
 function editarNotas(i) {
  const aluno = turma[i];
- if (!aluno) {
-  alert('Aluno não encontrado.');
-  return;
+ if (!aluno) return;
+
+ const anterior = document.getElementById('editor-notas');
+ if (anterior) anterior.remove();
+
+ const editor = document.createElement('div');
+ editor.id = 'editor-notas';
+ editor.style.margin = '12px 0';
+ editor.style.padding = '12px';
+ editor.style.border = '1px solid #ccc';
+
+ const titulo = document.createElement('p');
+ titulo.textContent = 'Editar nota de ' + aluno.getNome();
+ const selecao = document.createElement('select');
+ ['1', '2', '3'].forEach(n => {
+  const opcao = document.createElement('option');
+  opcao.value = n;
+  opcao.textContent = 'Nota ' + n;
+  selecao.appendChild(opcao);
+ });
+ const campo = document.createElement('input');
+ campo.type = 'number';
+ campo.min = '0';
+ campo.max = '10';
+ campo.step = '0.1';
+ const notas = [aluno.getNota1(), aluno.getNota2(), aluno.getNota3()];
+ function atualizarCampo() {
+  campo.value = notas[Number(selecao.value) - 1];
  }
- const escolha = prompt('Qual nota deseja alterar? Digite 1, 2 ou 3:');
- if (escolha === null) return;
- const numero = escolha.trim();
- if (!['1', '2', '3'].includes(numero)) {
-  alert('Escolha a nota 1, 2 ou 3.');
-  return;
- }
- const notaAtual = numero === '1' ? aluno.getNota1() : numero === '2' ? aluno.getNota2() : aluno.getNota3();
- const entrada = prompt('Digite o novo valor da nota ' + numero + ':', notaAtual);
- if (entrada === null) return;
- const valor = Number(entrada.trim().replace(',', '.'));
- if (entrada.trim() === '' || !Number.isFinite(valor) || valor < 0 || valor > 10) {
-  alert('A nota deve ser um número entre 0 e 10.');
-  return;
- }
- if (numero === '1') aluno.setNota1(valor);
- if (numero === '2') aluno.setNota2(valor);
- if (numero === '3') aluno.setNota3(valor);
- salvarDados();
- listarAluno();
- alert('Nota ' + numero + ' atualizada.');
+ selecao.addEventListener('change', atualizarCampo);
+ atualizarCampo();
+
+ const salvar = document.createElement('button');
+ salvar.textContent = 'Salvar nota';
+ salvar.type = 'button';
+ salvar.addEventListener('click', () => {
+  const valor = Number(campo.value);
+  if (campo.value.trim() === '' || !Number.isFinite(valor) || valor < 0 || valor > 10) {
+   alert('A nota deve ser um número entre 0 e 10.');
+   return;
+  }
+  if (selecao.value === '1') aluno.setNota1(valor);
+  if (selecao.value === '2') aluno.setNota2(valor);
+  if (selecao.value === '3') aluno.setNota3(valor);
+  salvarDados();
+  listarAluno();
+ });
+ const cancelar = document.createElement('button');
+ cancelar.textContent = 'Cancelar';
+ cancelar.type = 'button';
+ cancelar.addEventListener('click', () => editor.remove());
+ editor.append(titulo, selecao, campo, salvar, cancelar);
+ document.getElementById('alunos').prepend(editor);
 }
 
 window.btnSalvarTurma = btnSalvarTurma;
