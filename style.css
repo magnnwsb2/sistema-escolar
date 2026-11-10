@@ -127,3 +127,9 @@ input, select, button { max-width: 100%; }
  .tabs-container { width: 100%; }
  .tab-button { min-width: 0; padding: 10px 6px; }
 }
+
+/* Opções separadas para cadastro de aluno e de turma */
+.opcoes-cadastro { display: flex; flex-wrap: wrap; gap: 10px; }
+.opcoes-cadastro button { flex: 1; min-width: 130px; padding: 10px; cursor: pointer; }
+.formulario-cadastro { display: none; flex-direction: column; gap: 12px; }
+.formulario-cadastro.active { display: flex; }
