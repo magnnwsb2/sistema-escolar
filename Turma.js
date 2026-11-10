@@ -5,3 +5,5 @@ class Turma {
   this.alunos = [];
  }
 }
+
+window.Turma = Turma;
