@@ -42,6 +42,7 @@ static salvar() {
  return a1;
 }
 static listar(turma) {
+ localStorage.setItem('sistema-escolar-aba', 'listar');
  const btnCadastrar = document.getElementById('btn-cadastrar');
  const tabCadastrar = document.getElementById('tab-cadastrar');
  const btnListar = document.getElementById('btn-listar');
@@ -90,6 +91,7 @@ static salvarTurma() {
 }
 
 static cadastrar() {
+ localStorage.setItem('sistema-escolar-aba', 'cadastrar');
  const btnCadastrar = document.getElementById('btn-cadastrar');
  const tabCadastrar = document.getElementById('tab-cadastrar');
  const btnListar = document.getElementById('btn-listar');
