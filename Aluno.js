@@ -55,3 +55,5 @@ class Aluno {
   }
 
 if (typeof module !== 'undefined' && module.exports) module.exports = Aluno;
+
+if (typeof window !== 'undefined') window.Aluno = Aluno;
